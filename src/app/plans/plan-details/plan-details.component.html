@@ -1,1 +1,41 @@
-<p>plan-details works!</p>
+<h2 fxLayout fxLayoutAlign="center center" class="header mat-display-1">Plan Details</h2>
+
+<div *ngIf="plan" 
+fxLayout="column"
+
+fxLayoutAlign="center center" 
+>
+    <section>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ plan.name }}</mat-card-title>
+            <mat-card-subtitle>{{ plan.supplier }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="./assets/SSE_Business.jpeg" 
+             alt="Photo of SSE_Business-EnergyForWeb" />
+        <mat-card-content class="mat-typography">
+            <h3 class="mat-subheading-2"> <b> Description:</b> {{ plan.description }} </h3>
+            <h3 class="mat-subheading-2"> <b>Green Plan: </b> {{ plan.green_plan }} </h3>
+            <mat-chip-list aria-label="plan cost" fxLayout fxLayoutAlign="center">
+                <mat-chip color="primary" selected>Annual Cost:
+                    {{ plan.annual_cost | currency: "GBP":"symbol" }}</mat-chip>
+                <mat-chip color="accent" selected>Monthly Plan:
+                    {{ plan.monthly_direct_debit | currency: "GBP":"symbol" }}</mat-chip>
+            </mat-chip-list>
+        </mat-card-content>
+        <mat-card-actions fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-raised-button color="primary"
+                    (click)="openBottomSheet()"
+            >
+                <mat-icon>share</mat-icon>
+                SHARE
+            </button>
+            <button mat-raised-button color="primary" (click)='addToCart(plan)'>
+                <mat-icon>shopping_cart</mat-icon>
+                ADD
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</section>
+</div>
