@@ -1,0 +1,24 @@
+.header {
+padding-top: 20px;
+}
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url("src/assets/swalec.png");
+    background-size: cover;
+  }
+  
+  .card {
+    margin-top: 40px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: darkslateblue
+  }
+  
+  a:hover {
+    opacity: 0.8;
+  }

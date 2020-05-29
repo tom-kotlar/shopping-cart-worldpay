@@ -1,1 +1,35 @@
-<p>plan-list works!</p>
+
+
+  <h2  fxLayout fxLayoutAlign="center center" class="header mat-display-1">Business Energy Plans</h2>
+
+
+<div *ngFor="let item of planList; index as planId" class="card" 
+fxLayout="column"
+fxLayout.gt-md="row"
+fxLayoutAlign="center center" 
+> 
+<section>
+    <mat-card class="example-card" >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+          <a [title]="item.name + 'details'" [routerLink]="['/planList', planId]">
+            {{ item.name }}
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle>{{ item.supplier }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="./assets/SSE_Business.jpeg" alt="photo SSE Business logo" />
+      <mat-card-content>
+        <p>Description: {{ item.description }}</p>
+      </mat-card-content>
+      <mat-card-actions fxLayout fxLayoutGap="5px">
+        <button mat-raised-button color="primary" (click)="call()">CALL</button>
+        <button mat-raised-button (click)="openDialog()" color="accent">SHARE</button>
+        <button mat-raised-button (click)="openSnackBar()" aria-label="snack-bar" color="accent">
+          CHAT
+        </button>
+      </mat-card-actions>
+    </mat-card>
+</section>
+</div>
