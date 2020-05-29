@@ -11,9 +11,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 //Components
 import { ToolbarComponent } from './navigation/toolbar/toolbar.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-import { PlanListComponent } from './plans/plan-list/plan-list.component';
-import { PlanDetailsComponent } from './plans/plan-details/plan-details.component';
+import { PlanListComponent, ShareComponent, ChatComponent } from './plans/plan-list/plan-list.component';
+import { PlanDetailsComponent, BottomSheet } from './plans/plan-details/plan-details.component';
 import { CartComponent } from './cart/cart.component';
+import { PlanService } from './plans/plan.service';
 
 
 
@@ -25,6 +26,9 @@ import { CartComponent } from './cart/cart.component';
     PlanListComponent,
     PlanDetailsComponent,
     CartComponent,
+    ShareComponent,
+    ChatComponent,
+    BottomSheet,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { CartComponent } from './cart/cart.component';
     FlexLayoutModule,
     
   ],
-  providers: [],
+  providers: [PlanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
