@@ -1,1 +1,21 @@
-<p>cart works!</p>
+<section *ngFor="let item of items">
+    <mat-card>
+      <mat-card-content>
+        <span class="mat-h1">{{ item.name }} </span>
+        <mat-chip-list fxFlex fxLayout fxLayoutAlign="flex-end">
+          <mat-chip color="accent" selected>
+            <b> Annual Cost: </b>
+            {{ item.annual_cost | currency: "GBP":"symbol" }}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  
+  <section>
+    <form #paymentForm *ngIf="!token">
+      <div id="paymentSection"></div>
+    </form>
+    <h2 *ngIf="token">Token from WorldPay {{ token }}</h2>
+  </section>
+  
