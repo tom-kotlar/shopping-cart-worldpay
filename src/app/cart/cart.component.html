@@ -13,9 +13,61 @@
   </section>
   
   <section>
-    <form #paymentForm *ngIf="!token">
+    <!-- <form #paymentForm *ngIf="!token">
       <div id="paymentSection"></div>
     </form>
     <h2 *ngIf="token">Token from WorldPay {{ token }}</h2>
+    <input type="submit" value="Place Order" /> -->
   </section>
   
+
+ 
+
+  <section>
+    <form id="paymentForm" [formGroup]="paymentForm" (ngSubmit)='onSubmit()' action="/complete"  method="post">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Customer Name</mat-label>
+          <input matInput placeholder="John Wick"  data-worldpay="name" type="text" formControlName='name' >
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint>Name on Card</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hintLabel="Max 16 characters">
+          <mat-label>Card Number</mat-label>
+          <input matInput  #input maxlength="16" placeholder="1111 2222 3333 4444"  data-worldpay="number" type="text"  formControlName='number' >
+          <mat-icon matSuffix>money</mat-icon>
+          <mat-hint align="end">{{input.value?.length || 0}}/16</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Expiration (MM/YYYY)</mat-label>
+          <input matInput placeholder="03/2030"  data-worldpay="exp-month"  type="text" formControlName='expiration'>
+          <mat-icon matSuffix>date_range</mat-icon>
+          <mat-hint>Expiration Date</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hintLabel="Max 3 characters">
+          <mat-label>CVC</mat-label>
+          <input matInput  #card maxlength="3" placeholder="123"  data-worldpay="cvc"  type="text"  formControlName='cvc' >
+          <mat-icon matSuffix>payment</mat-icon>
+          <mat-hint align="end">{{card.value?.length || 0}}/3</mat-hint>
+        </mat-form-field>
+      </p>
+          
+      <button type="submit" mat-raised-button color='primary'>PAY</button>
+  </form>
+  </section>
+
+  <h2 *ngIf="token">Token from WorldPay {{ token }}</h2>
+
+  <p>
+    John Wick
+    1111222233334444
+    03/2030
+    123
+  </p>
