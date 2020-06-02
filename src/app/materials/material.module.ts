@@ -12,6 +12,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
+import { MatFormFieldModule } from '@angular/material/form-field'
+
 
 @NgModule({
     imports: [
@@ -27,6 +29,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
         MatDialogModule,
         MatChipsModule,
         MatBottomSheetModule,
+        MatFormFieldModule,
 
     ],
     exports: [
@@ -42,6 +45,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
         MatDialogModule,
         MatChipsModule,
         MatBottomSheetModule,
+        MatFormFieldModule,
 
     ]
 })
