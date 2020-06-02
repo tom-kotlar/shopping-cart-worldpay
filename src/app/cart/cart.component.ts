@@ -31,8 +31,9 @@ export class CartComponent implements OnInit {
 
     this.paymentForm = new FormGroup({
       name: new FormControl('', { validators: [Validators.required ] }),
-      number: new FormControl('', { validators: [Validators.required] }),
-      expiration: new FormControl('', { validators: [Validators.required] }),
+      cardNumber: new FormControl('', { validators: [Validators.required] }),
+      expirationMonth: new FormControl('', { validators: [Validators.required] }),
+      expirationYear: new FormControl('', { validators: [Validators.required] }),
       cvc: new FormControl('', { validators: [Validators.required] }),
     })
   }
@@ -40,8 +41,9 @@ export class CartComponent implements OnInit {
   onSubmit() {
  this.payment = new Payment(
 this.paymentForm.value.name,
-this.paymentForm.value.number,
-this.paymentForm.value.expiration,
+this.paymentForm.value.cardNumber,
+this.paymentForm.value.expirationMonth,
+this.paymentForm.value.expirationYear,
 this.paymentForm.value.cvc,
  )
  console.log(this.payment, '----', this.paymentForm)

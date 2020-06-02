@@ -1,8 +1,9 @@
 export class Payment {
     constructor(
         public name: string,
-        public number: number,
-        public expiration: string,
+        public cardNumber: number,
+        public expirationMonth: string,
+        public expirationYear: string,
         public cvc: number,
     ) { }
 }
