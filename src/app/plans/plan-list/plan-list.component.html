@@ -3,13 +3,14 @@
   <h2  fxLayout fxLayoutAlign="center center" class="header mat-display-1">Business Energy Plans</h2>
 
 
-<div *ngFor="let item of planList; index as planId" class="card" 
-fxLayout="column"
-fxLayout.gt-md="row"
-fxLayoutAlign="center center" 
+<div 
+fxFlexAlign="center"
 > 
-<section>
-    <mat-card class="example-card" >
+<section  
+fxLayout="column"
+fxLayout.gt-md="row" 
+fxLayoutAlign="space-around center">
+    <mat-card class="example-card" *ngFor="let item of planList; index as planId">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>
