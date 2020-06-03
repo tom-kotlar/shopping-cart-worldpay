@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CartService } from './cart.service';
 import { Payment } from './payment.class';
 
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 
 declare var Worldpay: any;
 
@@ -17,7 +17,10 @@ declare var Worldpay: any;
 export class CartComponent implements OnInit {
 
   items
-  token: string = null;
+  token: string;
+  reusable: string
+
+  keyToken: string
 
   @ViewChild('paymentForm') form;
   readonly worldpayClientKey = 'T_C_b078627d-3008-4478-b6e1-0258aaac8e71';
@@ -31,8 +34,6 @@ export class CartComponent implements OnInit {
     this.items = this.planService.getItems()
     console.log(this.items)
     this.loadScript('https://cdn.worldpay.com/v1/worldpay.js', this.init);
-
-   
   }
 
   
@@ -51,11 +52,15 @@ export class CartComponent implements OnInit {
   
   
   worldpayCallback = (status): void => {
-    console.log(status)
+  console.log(status)
     this.token = status.token
+    this.reusable = status.reusable
+    this.keyToken = this.token
     console.log(`Token: ${this.token}`);
-    this.makePayment()
+    this.makePayment(this.keyToken)
   }
+
+  
   
   private loadScript(url: string, callbackFunction: (any) = undefined) {
     const node = document.createElement('script');
@@ -67,30 +72,28 @@ export class CartComponent implements OnInit {
   
   
  
-  postURL= "https://api.worldpay.com/v1/orders"
+  postURL= "https://wrldpayapi.azurewebsites.net/api/worldPayTrig?name=tomas&code=mGUbiIYR7Nw3ykaR1Z6OJLCePaanhUwwaYKF3knWQsCbPSN6ZChr4w=="
 
   
   worldPostHeaders = { 
     'Authorization': 'T_S_fbdbb773-f051-466d-82c8-d97176ae5954',
     'Content-Type' : 'application/json',
-     'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*',
     //service key
   }
   requestOptions = {                                                                                                                                                                                 
     headers: new HttpHeaders(this.worldPostHeaders), 
   };
 
-  data = {
-    "token" : `${this.token}`, 
-    "orderDescription" : "paying for electric", 
-    "amount" : 500, 
-    "currencyCode" : "GBP"
-};
   
-  
-  
-  makePayment() {
-    return this.http.post(this.postURL, this.data, this.requestOptions).subscribe(value => {
+  makePayment(token) {
+    console.log(this.token)
+    return this.http.post(this.postURL, {
+      "token" :  token,
+      "orderDescription" : "paying for electric", 
+      "amount" : 500, 
+      "currencyCode" : "GBP"
+    }).subscribe(value => {
       console.log(value, '<----payment')
     })
   }
