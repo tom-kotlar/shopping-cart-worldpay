@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from "@angular/common/http"
+
 //stylyng 
 import { MaterialModule } from './materials/material.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -15,6 +17,7 @@ import { PlanListComponent, ShareComponent, ChatComponent } from './plans/plan-l
 import { PlanDetailsComponent, BottomSheet } from './plans/plan-details/plan-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PlanService } from './plans/plan.service';
+
 
 
 
@@ -38,6 +41,7 @@ import { PlanService } from './plans/plan.service';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     
     

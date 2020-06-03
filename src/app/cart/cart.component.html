@@ -13,17 +13,26 @@
   </section>
   
   <section>
-    <!-- <form #paymentForm *ngIf="!token">
+    <form #paymentForm >
       <div id="paymentSection"></div>
+      <p>
+        <input placeholder="email" type="email"/>
+      </p>
+      <p>
+        <input placeholder="10.00" type="number"/>
+      </p>
+      <p>
+        {{ token }}
+      <p>
+  <input type="submit" value="Place Order" onclick="Worldpay.submitTemplateForm()" />
+</p>
     </form>
     <h2 *ngIf="token">Token from WorldPay {{ token }}</h2>
-    <input type="submit" value="Place Order" /> -->
   </section>
   
+  
 
- 
-
-  <section>
+  <!-- <section>
     <form id="paymentForm" [formGroup]="paymentForm" (ngSubmit)='onSubmit()' action="/complete"  method="post">
       <p>
         <mat-form-field appearance="fill">
@@ -41,17 +50,6 @@
           <mat-hint align="end">{{input.value?.length || 0}}/16</mat-hint>
         </mat-form-field>
       </p>
-
-      <!-- <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Expiration (MM/YYYY)</mat-label>
-          <input matInput placeholder="03"  data-worldpay="exp-month"  type="text" formControlName='expirationMonth'>
-          <mat-icon matSuffix>date_range</mat-icon>
-          <mat-hint>Expiration Date</mat-hint>
-        </mat-form-field>
-        <input matInput placeholder="2030"  data-worldpay="exp-year"  type="text" formControlName='expirationYear'>
-      </p> -->
-
 
       <div class="example-container">
         <mat-form-field hintLabel="Max 2 characters" appearance="fill">
@@ -83,10 +81,10 @@
 
   <p>
     John Wick
-    1111222233334444
+    5555555555554444
     03/2030
     123
-  </p>
+  </p> -->
 
 
 
