@@ -19,7 +19,8 @@ export class CartComponent implements OnInit {
   items
   token: string;
   reusable: string
-
+  total
+  cartTotal: string
   keyToken: string
 
   @ViewChild('paymentForm') form;
@@ -34,6 +35,9 @@ export class CartComponent implements OnInit {
     this.items = this.planService.getItems()
     console.log(this.items)
     this.loadScript('https://cdn.worldpay.com/v1/worldpay.js', this.init);
+    this.total = this.planService.totalCart(this.items)
+     console.log(this.total)
+
   }
 
   
@@ -56,8 +60,9 @@ export class CartComponent implements OnInit {
     this.token = status.token
     this.reusable = status.reusable
     this.keyToken = this.token
-    console.log(`Token: ${this.token}`);
-    this.makePayment(this.keyToken)
+    this.cartTotal = this.total.toString().replace('.', '')
+    // console.log(`Token: ${this.token}`);
+    this.makePayment(this.keyToken, this.cartTotal )
   }
 
   
@@ -86,12 +91,12 @@ export class CartComponent implements OnInit {
   };
 
   
-  makePayment(token) {
-    console.log(this.token)
+  makePayment(token, amount) {
+    console.log( this.keyToken, this.cartTotal, '<<<<<<')
     return this.http.post(this.postURL, {
       "token" :  token,
       "orderDescription" : "paying for electric", 
-      "amount" : 500, 
+      "amount" : amount, 
       "currencyCode" : "GBP"
     }).subscribe(value => {
       console.log(value, '<----payment')

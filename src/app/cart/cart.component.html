@@ -4,8 +4,11 @@
         <span class="mat-h1">{{ item.name }} </span>
         <mat-chip-list fxFlex fxLayout fxLayoutAlign="flex-end">
           <mat-chip color="accent" selected>
-            <b> Annual Cost: </b>
-            {{ item.annual_cost | currency: "GBP":"symbol" }}
+            <b> Annual Cost :</b>
+             {{ item.annual_cost | currency: "GBP":"symbol" }}
+          </mat-chip>
+          <mat-chip color="accent" selected>
+            <b> Monthly Cost :</b>  {{item.monthly_direct_debit | currency: "GBP":"symbol" }}
           </mat-chip>
         </mat-chip-list>
       </mat-card-content>
@@ -13,27 +16,31 @@
   </section>
   
   <section>
-    <form #paymentForm >
+    <form #paymentForm>
       <div id="paymentSection"></div>
-      <p>
-        <input placeholder="email" type="email"/>
-      </p>
-      <p>
-        <input placeholder="10.00" type="number"/>
-      </p>
-      <p>
-        {{ token }}
-      <p>
-  <input type="submit" value="Place Order" onclick="Worldpay.submitTemplateForm()" />
-</p>
-    </form>
-    <h2 *ngIf="token">Token from WorldPay:  {{ token }}</h2>
-      
-    <h2 *ngIf="token">reusable: {{ reusable }}</h2>
-      
+
+      <mat-chip-list aria-label="total">
+        <mat-chip color="accent" selected *ngIf="items">
+          <b> Total to Pay :</b> {{ total | currency: "GBP":"symbol" }}
+        </mat-chip>
+      </mat-chip-list>
   
+      <button mat-raised-button color="primary" type="submit" 
+        onclick="Worldpay.submitTemplateForm()">
+        <mat-icon>account_balance_wallet</mat-icon>
+        PAY</button>
+      </form>
+  
+    <mat-chip *ngIf="token"> Token from WorldPay: {{ token }}</mat-chip>
+    <mat-chip *ngIf="token"> Reusable: {{ reusable }}</mat-chip>
   </section>
   
+  <mat-list role="list">
+    <mat-list-item role="listitem">John Wick</mat-list-item>
+    <mat-list-item role="listitem"> 5555555555554444, 4444333322221111, 5454545454545454</mat-list-item>
+    <mat-list-item role="listitem"> 03 / 2030</mat-list-item>
+    <mat-list-item role="listitem"> 123 </mat-list-item>
+  </mat-list>
   
 
   <!-- <section>
