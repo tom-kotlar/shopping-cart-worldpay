@@ -104,8 +104,6 @@ export class CartComponent implements OnInit {
   }
 
   
-  
-  
   // this.paymentForm = new FormGroup({
   //   name: new FormControl('', { validators: [Validators.required ] }),
   //   cardNumber: new FormControl('', { validators: [Validators.required] }),

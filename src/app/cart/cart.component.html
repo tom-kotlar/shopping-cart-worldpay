@@ -26,14 +26,19 @@
           <b> Total to Pay :</b> {{ total | currency: "GBP":"symbol" }}
         </mat-chip>
       </mat-chip-list>
-      
-      <section fxLayoutAlign="center center">
+
+      <section  fxLayoutAlign="center center">
         <button mat-raised-button color="primary" type="submit" onclick="Worldpay.submitTemplateForm()"
           class="payment_button">
           <mat-icon>account_balance_wallet</mat-icon>
           PAY
         </button>
+
+        <button  mat-raised-button class="paypal" fxLayout></button>
       </section>
+      <a href="https://www.paypal.com/uk/merchantsignup/create">
+        <p> Create Paypal Account</p>
+       </a>
     </form>
 
     <mat-chip *ngIf="token"> Token from WorldPay: {{ token }}</mat-chip>
