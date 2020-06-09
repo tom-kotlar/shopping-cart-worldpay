@@ -3,7 +3,7 @@
         <mat-icon> account_box </mat-icon>
         <span class="nav-caption"> ACCOUNT</span>
     </a>
-    <a mat-list-item routerLink="/plans" (click)="onClose()">
+    <a mat-list-item routerLink="/" (click)="onClose()">
         <mat-icon> flash_on </mat-icon>
         <span class="nav-caption"> PLANS </span>
     </a>
@@ -14,6 +14,10 @@
     <a mat-list-item routerLink="#" (click)="onClose()">
         <mat-icon> description </mat-icon>
         <span class="nav-caption"> BILLS</span>
+    </a>
+    <a mat-list-item routerLink="/cart" (click)="onClose()">
+        <mat-icon> shopping_bag</mat-icon>
+        <span class="nav-caption"> CART</span>
     </a>
     <mat-list-item>
         <button mat-icon-button color='accent'>

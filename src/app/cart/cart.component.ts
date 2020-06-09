@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
     this.loadScript('https://cdn.worldpay.com/v1/worldpay.js', this.init);
     this.total = this.planService.totalCart(this.items)
      console.log(this.total)
-
+//the function goes 2x - check the console
   }
 
   
