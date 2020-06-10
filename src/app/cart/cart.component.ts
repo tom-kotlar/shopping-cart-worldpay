@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlanService } from '../plans/plan.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CartService } from './cart.service';
+import { FormGroup } from '@angular/forms';
 import { Payment } from './payment.class';
+import { Router } from "@angular/router";
 
-import { HttpHeaders, HttpClient, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 declare var Worldpay: any;
 
@@ -29,7 +29,7 @@ export class CartComponent implements OnInit {
   paymentForm: FormGroup
   // payment: Payment
 
-  constructor(private planService: PlanService, private cartService: CartService, private http: HttpClient) { }
+  constructor(private planService: PlanService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.items = this.planService.getItems()
@@ -103,45 +103,8 @@ export class CartComponent implements OnInit {
     })
   }
 
-  
-  // this.paymentForm = new FormGroup({
-  //   name: new FormControl('', { validators: [Validators.required ] }),
-  //   cardNumber: new FormControl('', { validators: [Validators.required] }),
-  //   expirationMonth: new FormControl('', { validators: [Validators.required] }),
-  //   expirationYear: new FormControl('', { validators: [Validators.required] }),
-  //   cvc: new FormControl('', { validators: [Validators.required] }),
-  // })
+  confirmMessage() {
+    this.router.navigate(['/confirm'])
+  }
 
-
-//   onSubmit() {
-//  this.payment = new Payment(
-// this.paymentForm.value.name,
-// this.paymentForm.value.cardNumber,
-// this.paymentForm.value.expirationMonth,
-// this.paymentForm.value.expirationYear,
-// this.paymentForm.value.cvc,
-//  )
-//  console.log(this.payment, '----', this.paymentForm)
-// }
-
-
-// let form = this.paymentForm
-// Worldpay.useOwnForm({
-//    'clientKey': this.worldpayClientKey,
-//    'form': this.paymentForm,
-//    'reusable': true,
-//    'callback': function(status, response) {
-//    let element =   document.getElementById('paymentErrors').innerHTML = '';
-//    console.log("this is element",element)
-
-//       if (response.error) {
-//          Worldpay.handleError(form, document.getElementById('paymentErrors'), response.error);
-//       } else {
-//         let token = response.token;
-//          console.log(token)
-//          Worldpay.formBuilder(form, 'input', 'hidden', 'token', token);
-//         this.onSubmit()
-//       }
-//    }
-// });
 }
