@@ -17,6 +17,7 @@ import { PlanListComponent, ShareComponent, ChatComponent } from './plans/plan-l
 import { PlanDetailsComponent, BottomSheet } from './plans/plan-details/plan-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PlanService } from './plans/plan.service';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 
@@ -32,6 +33,7 @@ import { PlanService } from './plans/plan.service';
     ShareComponent,
     ChatComponent,
     BottomSheet,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,

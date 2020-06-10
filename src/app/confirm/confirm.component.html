@@ -1,0 +1,7 @@
+<h2 fxLayout fxLayoutAlign="center center" class="header mat-display-1">Thank You for choosing SSE</h2>
+
+<section fxLayout="column" fxLayoutAlign="center center" class="mat-h2">
+    <p> Your payment of {{total | currency: "GBP":"symbol" }} for </p>
+    <p *ngFor="let item of items"> {{ item.name }} </p>
+    <p>was successful </p>
+</section>
