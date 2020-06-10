@@ -103,8 +103,4 @@ export class CartComponent implements OnInit {
     })
   }
 
-  confirmMessage() {
-    this.router.navigate(['/confirm'])
-  }
-
 }

@@ -28,13 +28,15 @@
       </mat-chip-list>
 
       <section  fxLayoutAlign="center center">
-        <button mat-raised-button color="primary" type="submit" onclick="Worldpay.submitTemplateForm()"
-          class="payment_button"
-          (click)="confirmMessage()"
-          >
-          <mat-icon>account_balance_wallet</mat-icon>
-          PAY
-        </button>
+        <a routerLink="/confirm">
+          <button mat-raised-button color="primary" type="submit"
+           onclick="Worldpay.submitTemplateForm()"
+            class="payment_button"
+            >
+            <mat-icon>account_balance_wallet</mat-icon>
+            PAY
+          </button>
+        </a>
 
         <button  mat-raised-button class="paypal" fxLayout></button>
       </section>
@@ -63,4 +65,3 @@
 
 
 
-  
