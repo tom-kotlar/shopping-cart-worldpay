@@ -6,11 +6,12 @@ import { CartComponent } from './cart/cart.component';
 import { ConfirmComponent } from "./confirm/confirm.component";
 
 
+
 const routes: Routes = [
   { path: '', component: PlanListComponent },
   { path: 'planList/:planId', component: PlanDetailsComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'confirm', component: ConfirmComponent }
+  { path: 'confirm', component: ConfirmComponent },
 ];
 
 @NgModule({

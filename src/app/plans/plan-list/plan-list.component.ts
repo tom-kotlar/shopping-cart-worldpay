@@ -26,8 +26,8 @@ export class PlanListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  call() {
-    window.alert('You callling the customer service!');
+  openCallDialog() {
+    this.dialog.open(CallComponent)
   }
 
   openSnackBar() {
@@ -40,10 +40,16 @@ export class PlanListComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(ShareComponent);
+   
   }
 
 }
 
+@Component({
+  selector: 'app-plan-list',
+  templateUrl: './call-element.html',
+})
+export class CallComponent { }
 
 @Component({
   selector: 'app-plan-list',

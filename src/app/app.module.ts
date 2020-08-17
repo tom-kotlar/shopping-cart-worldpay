@@ -13,11 +13,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 //Components
 import { ToolbarComponent } from './navigation/toolbar/toolbar.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-import { PlanListComponent, ShareComponent, ChatComponent } from './plans/plan-list/plan-list.component';
+import { PlanListComponent, ShareComponent, ChatComponent, CallComponent } from './plans/plan-list/plan-list.component';
 import { PlanDetailsComponent, BottomSheet } from './plans/plan-details/plan-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PlanService } from './plans/plan.service';
 import { ConfirmComponent } from './confirm/confirm.component';
+
 
 
 
@@ -32,6 +33,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
     CartComponent,
     ShareComponent,
     ChatComponent,
+    CallComponent,
     BottomSheet,
     ConfirmComponent,
   ],

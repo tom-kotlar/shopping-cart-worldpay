@@ -1,4 +1,4 @@
-<h2 fxLayout fxLayoutAlign="center center" class="header mat-display-1">Plan Details</h2>
+<h1 fxLayout fxLayoutAlign="center center" class="header">Plan Details</h1>
 
 <div *ngIf="plan" 
 fxLayout="column"
@@ -14,16 +14,24 @@ fxLayoutAlign="center center"
         <img mat-card-image src="./assets/SSE_Business.jpeg" 
              alt="Photo of SSE_Business-EnergyForWeb" />
         <mat-card-content class="mat-typography">
-            <h3 class="mat-subheading-2"> <b> Description:</b> {{ plan.description }} </h3>
-            <h3 class="mat-subheading-2"> <b>Green Plan: </b> {{ plan.green_plan }} </h3>
-            <mat-chip-list aria-label="plan cost" fxLayout fxLayoutAlign="center">
+            <mat-chip-list aria-label="plan cost" fxLayout fxLayoutAlign="center" >
                 <mat-chip color="primary" selected>Annual Cost:
                     {{ plan.annual_cost | currency: "GBP":"symbol" }}</mat-chip>
                 <mat-chip color="accent" selected>Monthly Plan:
                     {{ plan.monthly_direct_debit | currency: "GBP":"symbol" }}</mat-chip>
             </mat-chip-list>
+            <h3 class="mat-subheading-2"> <b> Description:</b> {{ plan.description }} </h3>
+            <h3 class="mat-subheading-2"> <b>Green Plan: </b> {{ plan.green_plan }} </h3>
+        
         </mat-card-content>
         <mat-card-actions fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-raised-button color="primary"
+            (click)="openBottomSheet()"
+    >
+        <mat-icon>share</mat-icon>
+       BACK
+    </button>
+
             <button mat-raised-button color="primary"
                     (click)="openBottomSheet()"
             >

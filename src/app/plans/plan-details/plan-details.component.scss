@@ -1,12 +1,19 @@
+.header {
+  padding-top: 20px;
+}
+
 .example-card {
-    max-width: 800px;
-  }
-  .example-header-image {
-    background-image: url("src/assets/swalec.png");
-    background-size: cover;
-  }
-  
-  button {
-    margin-right: 40px;
-  }
-  
+  max-width: 800px;
+}
+.example-header-image {
+  background-image: url("src/assets/swalec.png");
+  background-size: cover;
+}
+
+.mat-chip-list {
+  margin-bottom: 15px;
+}
+
+// .button {
+//   margin-right: 40px;
+// }
