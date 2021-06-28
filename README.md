@@ -33,12 +33,12 @@ The aplication is deployed at Azure Websites [WorldPay](https://hostedpaymentapp
 ### :dvd: Clone this repo:
 
 ```bash
-git clone https://redOpalInternal@dev.azure.com/redOpalInternal/RedOpal%20Internal/_git/worldpayApp
+git clone https://github.com/tom-kotlar/shopping-cart-worldpay.git
 
-cd DataViewer
+cd shopping-cart-worldpay
 
 ```
-Might ask you for the Password / Click on **Generate Git Credentials**
+
 
 ### :cd: Install dependencies: 
 
